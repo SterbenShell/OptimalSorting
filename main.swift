@@ -1,16 +1,19 @@
-var line : [String]?
+var list = [] as [String]
+var line : String?
 repeat {
-   let line = readLine()
+    line = readLine()
     if line != nil {
-        print("You typed: '\(line!)'")
+        list.append(line!)
     }
 } while line != nil
 
 
+var newLine = list
 
-var newLine = line
-var list: [String]? = newLine 
 var sortedlist = list.sorted()
+
 for sortedlist in sortedlist {
+    
     print(sortedlist)
-}
+    
+} 
