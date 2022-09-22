@@ -8,12 +8,33 @@ repeat {
 } while line != nil
 
 
-var newLine = list
+func quickSort(array:[String]) -> [String]{
+    var less = [String]()
+    var equal = [String]()
+    var greater = [String]()
 
-var sortedlist = list.sorted()
+    //the Pivot is what the elements in the array compares to in order to find its place in the array
+    if array.count > 1{
+        let pivot = array[0]
 
-for sortedlist in sortedlist {
-    
-    print(sortedlist)
-    
-} 
+        for x in array{
+            if x < pivot{
+                less.append(x)
+            }
+            if x == pivot{
+                equal.append(x)
+            }
+            if x > pivot{
+                greater.append(x)
+            }
+        }
+        return (quickSort(array:less)+equal+quickSort(array:greater))
+    } else {
+        return array
+    }
+
+}
+let sortedArray = quickSort(array: list)
+for line in sortedArray {
+    print(line)
+}
